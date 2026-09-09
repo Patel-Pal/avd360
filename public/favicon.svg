@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="v" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3AA0F0"/>
+      <stop offset="1" stop-color="#0B1F3A"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="12" fill="#0B1F3A"/>
+  <!-- Gold triangle dot echoing the dot on the "A" -->
+  <path d="M32 9 L37 18 L27 18 Z" fill="#F5A623"/>
+  <!-- Angular "A" mark -->
+  <path d="M20 48 L30 22 L34 22 L44 48 L38 48 L36 41 L28 41 L26 48 Z M30 35 L34 35 L32 28 Z" fill="#FFFFFF"/>
+  <!-- Gradient diagonal stroke echoing the logo's V/D slash -->
+  <path d="M14 50 L50 16 L54 20 L18 54 Z" fill="url(#v)" opacity="0.85"/>
+</svg>

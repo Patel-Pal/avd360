@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+  body {
+    @apply bg-surface text-navy antialiased;
+  }
+  ::selection {
+    @apply bg-gold/30 text-navy;
+  }
+}
+
+@layer utilities {
+  .tracking-label {
+    letter-spacing: 0.2em;
+  }
+}
