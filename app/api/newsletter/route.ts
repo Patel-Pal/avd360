@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { connectToDatabase } from "@/lib/mongodb";
 import { Subscriber } from "@/models/Subscriber";
 import { newsletterSchema } from "@/lib/validation";
+import { sendNewsletterWelcome } from "@/lib/email";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -25,13 +26,22 @@ export async function POST(request: Request) {
 
   try {
     await connectToDatabase();
-    await Subscriber.updateOne(
-      { email: parsed.data.email.toLowerCase() },
-      { $setOnInsert: { email: parsed.data.email.toLowerCase() } },
+    const email = parsed.data.email.toLowerCase();
+    const result = await Subscriber.updateOne(
+      { email },
+      { $setOnInsert: { email } },
       { upsert: true }
     );
+
+    // Only welcome genuinely new subscribers; never let email failure break the flow.
+    let welcomed = false;
+    if (result.upsertedCount > 0) {
+      const sent = await sendNewsletterWelcome(email);
+      welcomed = sent.sent;
+    }
+
     return NextResponse.json(
-      { success: true, message: "You're subscribed." },
+      { success: true, message: "You're subscribed.", welcomed },
       { status: 201 }
     );
   } catch (error) {

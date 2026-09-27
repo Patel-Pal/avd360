@@ -34,7 +34,7 @@ export async function POST(request: Request) {
     await connectToDatabase();
     const doc = await Contact.create(parsed.data);
 
-    // Fire the notification but never let it fail the request.
+    // Fire the notifications but never let them fail the request.
     const notify = await sendContactNotification(parsed.data);
 
     return NextResponse.json(
@@ -42,7 +42,8 @@ export async function POST(request: Request) {
         success: true,
         message: "Your enquiry has been received.",
         id: doc._id,
-        notified: notify.sent,
+        notified: notify.ownerNotified,
+        autoReplied: notify.autoReplied,
       },
       { status: 201 }
     );
