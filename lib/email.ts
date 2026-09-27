@@ -94,7 +94,7 @@ function defaultFrom(): string {
 
 /** Public site origin (no trailing slash) used for logo + links in emails. */
 function siteUrl(): string {
-  return (process.env.SITE_URL || "https://avd360.com").replace(/\/$/, "");
+  return (process.env.SITE_URL || "https://avd360.in").replace(/\/$/, "");
 }
 
 /**
