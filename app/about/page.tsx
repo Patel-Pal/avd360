@@ -7,11 +7,14 @@ import { CTASection } from "@/components/CTASection";
 import { PhilosophySection } from "@/components/sections/PhilosophySection";
 import { IconCheck } from "@/components/icons";
 import { aboutCopy, company } from "@/lib/content";
+import { canonical, pageKeywords } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "About",
   description:
     "AVD 360 Solution is an integrated Business Excellence and Digital Transformation company connecting people, process and technology for sustainable growth.",
+  keywords: pageKeywords.about,
+  alternates: { canonical: canonical("/about") },
 };
 
 export default function AboutPage() {

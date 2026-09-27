@@ -7,11 +7,14 @@ import { CTASection } from "@/components/CTASection";
 import { PlatformModules } from "@/components/PlatformModules";
 import { IconCheck, IconTasks, IconDocs } from "@/components/icons";
 import { platformHighlights } from "@/lib/content";
+import { canonical, pageKeywords } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "AVD 360 Platform",
   description:
     "The AVD 360 Digital Business Platform — an integrated digital business-management platform connecting all departments with real-time visibility and control.",
+  keywords: pageKeywords.platform,
+  alternates: { canonical: canonical("/platform") },
 };
 
 const highlightIcons = [IconTasks, IconDocs];

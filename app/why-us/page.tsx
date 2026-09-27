@@ -7,11 +7,14 @@ import { BenefitItem } from "@/components/BenefitItem";
 import { USPCard } from "@/components/USPCard";
 import { CTASection } from "@/components/CTASection";
 import { businessBenefits, whyChooseUs } from "@/lib/content";
+import { canonical, pageKeywords } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Why Us",
   description:
     "Business benefits and the reasons organizations choose AVD 360 — all departments on one platform, real-time data, reduced cost and future-ready technology.",
+  keywords: pageKeywords.whyUs,
+  alternates: { canonical: canonical("/why-us") },
 };
 
 export default function WhyUsPage() {

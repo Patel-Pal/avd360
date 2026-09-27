@@ -14,11 +14,14 @@ import {
   qualityManagementList,
   whatWeDo,
 } from "@/lib/content";
+import { canonical, pageKeywords } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Services",
   description:
     "Consulting, Business Excellence, Quality Management, ISO Management and Digital Solutions — detailed capabilities from AVD 360 Solution.",
+  keywords: pageKeywords.services,
+  alternates: { canonical: canonical("/services") },
 };
 
 export default function ServicesPage() {

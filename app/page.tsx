@@ -1,4 +1,6 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { canonical, pageKeywords } from "@/lib/seo";
 import { Container } from "@/components/Container";
 import { HeroSection } from "@/components/HeroSection";
 import { PillarStrip } from "@/components/sections/PillarStrip";
@@ -18,6 +20,13 @@ import {
   platformModules,
   whyChooseUs,
 } from "@/lib/content";
+
+export const metadata: Metadata = {
+  description:
+    "AVD 360 Solution connects People, Process and Technology to deliver Business Excellence and Digital Transformation — consulting, quality, ISO management, lean and a connected digital business platform.",
+  keywords: pageKeywords.home,
+  alternates: { canonical: canonical("/") },
+};
 
 export default function HomePage() {
   return (

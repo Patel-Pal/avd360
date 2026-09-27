@@ -5,11 +5,14 @@ import { Reveal } from "@/components/Reveal";
 import { ContactForm } from "@/components/ContactForm";
 import { IconMail, IconPhone } from "@/components/icons";
 import { company } from "@/lib/content";
+import { canonical, pageKeywords } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Contact",
   description:
     "Get in touch with AVD 360 Solution for a free consultation on business excellence, quality, ISO and digital transformation.",
+  keywords: pageKeywords.contact,
+  alternates: { canonical: canonical("/contact") },
 };
 
 export default function ContactPage() {
